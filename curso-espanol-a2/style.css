@@ -655,6 +655,8 @@ footer.site-footer {
   border-bottom: 1px solid transparent;
 }
 .footer-inner .f-nav:hover { border-bottom-color: currentColor; }
+.site-footer .legal { max-width: var(--maxw); margin: 14px auto 0; padding-top: 12px; border-top: 1px solid var(--border-soft); color: var(--muted); font-size: .82rem; line-height: 1.5; }
+.site-footer .legal p + p { margin-top: 4px; }
 
 /* ---------- Адаптив ---------- */
 @media (max-width: 640px) {
@@ -674,6 +676,9 @@ footer.site-footer {
 /* ---------- Печать ---------- */
 @media print {
   .topbar, .pager, .reset-link, .done-toggle, .site-footer, .cta-row { display: none !important; }
+  .site-footer { display: block !important; background: none; }
+  .site-footer .footer-inner { display: none !important; }
+  .site-footer .legal { display: block !important; border-top: 0; padding-top: 0; margin-top: 0; }
   body { background: #fff; font-size: 12.5pt; }
   .unit-card, .skill-card, .exam-skill, .rule-card { box-shadow: none; break-inside: avoid; }
   .hero { background: none; }

@@ -9,8 +9,8 @@
 <style>
   :root { --bg:#FAF6EF; --ink:#2E2A26; --accent:#B5432A; --muted:#8A8177; --card:#fff; --line:#E8DFD2; }
   * { box-sizing:border-box; margin:0; padding:0; }
-  body { background:var(--bg); color:var(--ink); font:16px/1.6 -apple-system,"Segoe UI",Roboto,Arial,sans-serif; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
-  .wrap { max-width:760px; width:100%; }
+  body { background:var(--bg); color:var(--ink); font:16px/1.6 -apple-system,"Segoe UI",Roboto,Arial,sans-serif; min-height:100vh; display:flex; flex-direction:column; padding:24px; }
+  .wrap { max-width:760px; width:100%; margin:auto; }
   .kicker { color:var(--accent); font-weight:700; letter-spacing:.12em; font-size:.78rem; text-transform:uppercase; margin-bottom:10px; }
   h1 { font-family:Georgia,"Times New Roman",serif; font-size:clamp(1.9rem,4.5vw,2.7rem); line-height:1.15; margin-bottom:12px; }
   .lead { color:var(--muted); max-width:56ch; margin-bottom:34px; }
@@ -23,7 +23,10 @@
   .meta { margin-top:10px; font-size:.85rem; color:var(--accent); font-weight:600; }
   .doc { text-align:center; margin-top:26px; }
   .doc a { color:var(--accent); font-weight:600; text-decoration:none; border-bottom:1px dashed var(--accent); }
+  .doc a:hover { border-bottom-style:solid; }
   .note { margin-top:14px; font-size:.88rem; color:var(--muted); text-align:center; }
+  .legal { max-width:760px; width:100%; margin:0 auto; padding-top:18px; border-top:1px solid var(--line); text-align:center; color:var(--muted); font-size:.82rem; line-height:1.5; }
+  .legal p + p { margin-top:4px; }
 </style>
 </head>
 <body>
@@ -49,7 +52,11 @@
     </a>
   </div>
   <p class="note">Во всех уроках всех курсов: 🔊 у каждого нового слова, блок «Situación real» — диалог по теме урока с озвучкой — и тумблер «Перевод», который показывает русский перевод примеров, текстов, аудио и вопросов. Из любой страницы курса можно вернуться на эту главную ссылкой «← Все курсы» в верхней панели и в подвале.</p>
-  <p class="doc">Также в репозитории: <a href="%D0%9F%D0%BB%D0%B0%D0%BD%5F%D1%81%D0%B0%D0%BC%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%5F%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%5F%D0%B8%D1%81%D0%BF%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%BC%D1%83%5F%41%31%2D%42%31%2E%64%6F%63%78">подробный план обучения A1–B1 (DOCX)</a></p>
+  <p class="doc"><a href="%D0%9F%D0%BB%D0%B0%D0%BD%5F%D1%81%D0%B0%D0%BC%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%5F%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%5F%D0%B8%D1%81%D0%BF%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%BC%D1%83%5F%41%31%2D%42%31%2E%64%6F%63%78" download>Скачай подробный план обучения A1–B1 (DOCX)</a></p>
 </main>
+<footer class="legal">
+  <p>© 2019–2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+  <p>Лицензия № Л035-01218-23/01091451 · Интерактивная школа «МУДРО»</p>
+</footer>
 </body>
 </html>
