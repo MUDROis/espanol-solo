@@ -57,6 +57,54 @@
     tf: "верно / неверно", category: "распределите по группам"
   };
 
+  /* ---------- грамматическая подсказка перед заданием ---------- */
+  function conjTable(t) {
+    var wrap = el("div", "table-scroll conj-scroll");
+    var tbl = document.createElement("table");
+    tbl.className = "conj-table";
+    if (t.caption) {
+      var cap = document.createElement("caption");
+      cap.innerHTML = hl(t.caption);
+      tbl.appendChild(cap);
+    }
+    if (t.head && t.head.length) {
+      var thead = document.createElement("thead");
+      var hr = document.createElement("tr");
+      t.head.forEach(function (h) {
+        var th = document.createElement("th");
+        th.innerHTML = hl(h);
+        hr.appendChild(th);
+      });
+      thead.appendChild(hr);
+      tbl.appendChild(thead);
+    }
+    var tb = document.createElement("tbody");
+    (t.rows || []).forEach(function (r) {
+      var tr = document.createElement("tr");
+      r.forEach(function (cell, ci) {
+        var td = document.createElement(ci === 0 ? "th" : "td");
+        td.innerHTML = hl(cell);
+        tr.appendChild(td);
+      });
+      tb.appendChild(tr);
+    });
+    tbl.appendChild(tb);
+    wrap.appendChild(tbl);
+    return wrap;
+  }
+
+  function buildHint(cfg) {
+    if (!cfg.hint && !cfg.table) return null;
+    var d = el("details", "ex-hint");
+    if (cfg.hintOpen) d.setAttribute("open", "");
+    var s = el("summary", null, '<span class="hint-ico" aria-hidden="true">i</span>Подсказка по грамматике');
+    d.appendChild(s);
+    var body = el("div", "ex-hint-body");
+    if (cfg.hint) body.appendChild(el("p", "hint-text", hl(cfg.hint)));
+    if (cfg.table) body.appendChild(conjTable(cfg.table));
+    d.appendChild(body);
+    return d;
+  }
   function Ex(root, cfg, idx, total) {
     this.root = root;
     this.cfg = cfg;
@@ -76,6 +124,9 @@
     var best = el("span", "ex-best", this.best ? "лучший результат: " + this.best + "%" : "");
     head.appendChild(best);
     root.appendChild(head);
+
+    var hintBox = buildHint(this.cfg);
+    if (hintBox) root.appendChild(hintBox);
 
     this.body = el("div", "ex-body");
     root.appendChild(this.body);
