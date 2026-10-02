@@ -845,7 +845,7 @@
   function initTTS() {
     if (!("speechSynthesis" in window)) {
       Array.prototype.forEach.call(document.querySelectorAll(".tts"), function (p) {
-        p.innerHTML = '<p class="tts-warn">Аудирование требует синтеза речи браузера (speechSynthesis). Этот браузер его не поддерживает — попробуйте Chrome, Edge или Safari, либо откройте транскрипт ниже и прочитайте вслух.</p>';
+        p.innerHTML = '<p class="tts-warn">Аудирование требует голосового движка браузера (speechSynthesis). Этот браузер его не поддерживает — попробуйте Chrome, Edge или Safari, либо откройте транскрипт ниже и прочитайте вслух.</p>';
       });
       return;
     }
@@ -874,7 +874,7 @@
       bar.appendChild(btns);
       player.appendChild(bar);
 
-      var note = el("p", "tts-note", "Если голос не испанский — в настройках системы установите испанский пакет синтеза речи. Скорость можно снизить кнопкой «Медленно».");
+      var note = el("p", "tts-note", "Если голос не испанский — установите испанский голос в настройках системы. Скорость можно снизить кнопкой «Медленно».");
       player.appendChild(note);
 
       var texts = paragraphs.map(function (p) { return el("p", "tts-line", p.replace(/^— /, "— ")); });
